@@ -1,0 +1,34 @@
+
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>{{ twuser.name }}'s' tweets info page.</h1>
+
+<p>Name: {{twuser.name}}</p>
+{% if twuser.location  %}
+<p>Location: {{twuser.location}}</p>
+{% else %}
+
+{% endif %}
+
+<p>Followers count: {{twuser.followers_count}}</p>
+
+{% if statuses %}
+    {% for status in statuses %}
+    <article class="media content-section">
+        <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="https://twitter.com/{{twuser.screen_name}}/status/{{ status.id }}"> Original source</a>
+        </div>
+        <p class="article-content">{{ status.full_text }}</p>
+        </div>
+    </article>
+    {% endfor %}
+
+{% else %}
+    <p>No tweets found.</p>
+{% endif %}
+
+
+
+{% endblock content %}

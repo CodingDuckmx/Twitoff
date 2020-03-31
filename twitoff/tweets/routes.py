@@ -4,7 +4,7 @@ from twitoff.models import db, Twuser, Tweet, parse_records
 from twitoff.services.twitter_services import twitter_api
 from twitoff.services.basilica_services import basilica_api_client
 from twitoff.tweets.forms import SearchTwitterUser
-import jsonify
+
 
 twitter_api_client = twitter_api()
 

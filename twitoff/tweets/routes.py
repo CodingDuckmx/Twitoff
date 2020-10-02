@@ -34,8 +34,14 @@ def store_twitter_user_data(screen_name=None):
     print('Status count:', len(statuses))
     basilica_api = basilica_api_client()
     all_statuses_texts = [status.full_text for status in statuses]
+
+    # If Basilica is not working, you'd like to comment some lines
+    # and uncomment this line.
+    # embeddings = all_statuses_texts
+
     embeddings = list(basilica_api.embed_sentences(all_statuses_texts, model='twitter'))
     print('Number of embeddings:', len(embeddings))
+    
 
     # breakpoint()
 
